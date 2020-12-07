@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './XoGame.css';
 import _ from 'lodash'
 
@@ -8,16 +8,16 @@ const XoGame = () => {
         ['', '', ''],
         ['', '', ''],
     ]);
-    const currentPlayer =  useRef('X')
+    const currentPlayer = useRef('X')
 
     const playXO = (row, column) => {
         const newXoState = _.cloneDeep(xoState)
 
-        if(newXoState[row][column] === '') {
+        if (newXoState[row][column] === '') {
 
             newXoState[row][column] = currentPlayer.current;
 
-            if(currentPlayer.current === 'X') {
+            if (currentPlayer.current === 'X') {
                 currentPlayer.current = '0'
             } else {
                 currentPlayer.current = 'X'
@@ -27,41 +27,41 @@ const XoGame = () => {
 
         setXoState(newXoState)
 
-        if(hasWin(currentPlayer.current, xoState)) {
+        if (hasWin(currentPlayer.current, xoState)) {
             alert(`${currentPlayer.current} has win`)
         }
 
-        if(xoState[row][column] !== '') {
+        if (xoState[row][column] !== '') {
             alert('is equality')
         }
 
     };
 
-    const hasWin = (player,xoState) => {
+    const hasWin = (player, playTable) => {
         // lines
-        for(let row = 0; row < 3; row++) {
-            if(player === xoState[row][0] &&
-                player === xoState[row][1] &&
-                player === xoState[row][2]
+        for (let row = 0; row < 3; row++) {
+            if (player === playTable[row][0] &&
+                player === playTable[row][1] &&
+                player === playTable[row][2]
             )
                 return true
         }
 
         // column
-        for(let column = 0; column < 3; column++) {
-            if( player === xoState[0][column] &&
-                player === xoState[1][column] &&
-                player === xoState[2][column]
+        for (let column = 0; column < 3; column++) {
+            if (player === playTable[0][column] &&
+                player === playTable[1][column] &&
+                player === playTable[2][column]
             )
                 return true
         }
 
         //diagonals
-        if(player === xoState[0][0] && player === xoState[1][1] && player === xoState[2][2]) {
+        if (player === playTable[0][0] && player === playTable[1][1] && player === playTable[2][2]) {
             return true
         }
 
-        if(player === xoState[0][2] && player === xoState[1][1] && player === xoState[2][0]) {
+        if (player === playTable[0][2] && player === playTable[1][1] && player === playTable[2][0]) {
             return true
         }
         return false

@@ -177,7 +177,6 @@ export const LeetCode = () => {
                 break
             }
         }
-        console.log(up, down, peekUp, peekDown);
         return peekUp === peekDown && up && down;
     };
     validMountainArray([0, 1, 2, 4, 2, 1])
