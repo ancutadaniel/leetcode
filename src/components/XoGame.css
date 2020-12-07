@@ -1,0 +1,25 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    background-color: aqua;
+    flex-direction: column;
+}
+
+.tableArea {
+    display: grid;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px;
+}
+
+.cell {
+    grid-row-end: span 1;
+    grid-column-end: span 1;
+    font-size: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    border: 1px solid #000;
+}

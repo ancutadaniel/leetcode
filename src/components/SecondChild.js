@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
-import { PassPropsSecondChild } from '../App';
+import { NameContext } from '../App';
 import { LeetCode } from "./LeetCode";
 
 export const SecondChild = () => {
-    const {xoState,name} = useContext(PassPropsSecondChild);
-
+    const name = useContext(NameContext);
+    console.log(name);
     return (
         <div>
-            <h2>Hello from second child {name}</h2>
-            <LeetCode />
+            <h2>Hello from second child { name }</h2>
+            <LeetCode/>
         </div>
     );
 };
