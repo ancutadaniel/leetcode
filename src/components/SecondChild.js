@@ -4,7 +4,7 @@ import { LeetCode } from "./LeetCode";
 
 export const SecondChild = () => {
     const name = useContext(NameContext);
-    console.log(name);
+
     return (
         <div>
             <h2>Hello from second child { name }</h2>
